@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Afterword · About</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./pages.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="title" href="./">Afterword</a>
+      <nav class="top-nav">
+        <a href="./">Home</a>
+        <a href="./#endless">Endless</a>
+        <a href="./#ladder">Ladder</a>
+        <a href="./#leaderboard">Leaderboard</a>
+        <a href="./#awards">Awards</a>
+        <a class="account-chip" id="account-link" href="./#signin">Sign in</a>
+      </nav>
+    </header>
+    <script>
+      // Show the signed-in username, as the game's header does (session saved by src/account.ts).
+      try {
+        const s = JSON.parse(localStorage.getItem('compounded.session.v1') || 'null');
+        if (s && typeof s.username === 'string') document.getElementById('account-link').textContent = s.username;
+      } catch {}
+    </script>
+    <main>
+      <h1>About Afterword</h1>
+      <p class="muted">A word-chain game, still in testing.</p>
+
+      <!--
+        The game's origins. Write the story here, one <p> per paragraph. Until it's written,
+        this section stays hidden (remove the "hidden" attribute below to show it).
+      -->
+      <section id="origins" hidden>
+        <h2>How it started</h2>
+        <p></p>
+      </section>
+
+      <h2>The game</h2>
+      <p>
+        Each word you add has to follow the one before it to make a compound word or a common two-word phrase:
+        <em>dog</em> → <em>house</em> → <em>party</em> makes <em>doghouse</em> and <em>house party</em>. Endless
+        asks how long a chain you can build; the daily Ladder asks you to link a start word to an end word in a set
+        number of steps.
+      </p>
+
+      <h2>The word list</h2>
+      <p>
+        The list holds over 100,000 pairs, gathered from dictionaries, crossword word lists and books, then
+        checked by hand and with AI helpers. It's still growing: when you tap <strong>That should count</strong>,
+        the pair is reviewed every morning and, if it's a real phrase, added for everyone. Sources and licenses are
+        on the <a href="./privacy.html">privacy &amp; credits</a> page.
+      </p>
+
+      <p><a href="./">Back to the game</a></p>
+    </main>
+  </body>
+</html>

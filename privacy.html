@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Afterword · Privacy</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./pages.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="title" href="./">Afterword</a>
+      <nav class="top-nav">
+        <a href="./">Home</a>
+        <a href="./#endless">Endless</a>
+        <a href="./#ladder">Ladder</a>
+        <a href="./#leaderboard">Leaderboard</a>
+        <a href="./#awards">Awards</a>
+        <a class="account-chip" id="account-link" href="./#signin">Sign in</a>
+      </nav>
+    </header>
+    <script>
+      // Show the signed-in username, as the game's header does (session saved by src/account.ts).
+      try {
+        const s = JSON.parse(localStorage.getItem('compounded.session.v1') || 'null');
+        if (s && typeof s.username === 'string') document.getElementById('account-link').textContent = s.username;
+      } catch {}
+    </script>
+    <main>
+      <h1>Afterword privacy</h1>
+      <p class="muted">Afterword is a free word game, run as a hobby project. Last updated November 2026.</p>
+
+      <h2>The short version</h2>
+      <p>
+        You can play without signing in. If you do sign in, we keep only what the leaderboard needs. We never
+        sell or share your information, show no ads and use no trackers.
+      </p>
+
+      <h2>Stored only on your device</h2>
+      <p>
+        Your high scores, game settings and the pairs you add with "That should count" are saved in your
+        browser's local storage. Clearing your browser's site data removes them.
+      </p>
+
+      <h2>Pairs you suggest</h2>
+      <p>
+        When you tap "That should count", the two words, how you said they're written and the game mode are
+        sent to our review inbox, along with a random ID created by your browser so we can count how many
+        different players asked for a pair. Only a scrambled (hashed) form of that ID is stored. Your IP address
+        is used to prevent flooding and is never stored; we keep only a scrambled form of it combined with the
+        date, which changes every day and can't be turned back into your address, so that one connection can't
+        pose as many players. Reviewed pairs may be added to the game's word list for everyone.
+      </p>
+
+      <h2>Words the game doesn't know</h2>
+      <p>
+        When the game refuses a pair as "not in the word list", it sends the two words and the game mode to our
+        server, with the same random browser ID, so we can spot phrases many players expect that the list is
+        missing. Nothing else about you or your game is sent. Only the hashed ID and the same daily scrambled form
+        of your connection are stored, each pair is counted once per browser, and pairs are deleted once reviewed or after about six months.
+      </p>
+
+      <h2>Feedback you send</h2>
+      <p>
+        When you use Send feedback, your message, the kind of message, the game version and, if you typed one,
+        your name or email are sent to our server, plus your browser type for problem reports. The same daily
+        scrambled form of your connection is kept to limit how many messages one connection can send. Messages are
+        read by the site owner and deleted from the server once they've been passed on.
+      </p>
+
+      <h2>Signing in and the leaderboard</h2>
+      <p>If you choose to sign in so your scores appear on the leaderboard, we store:</p>
+      <ul>
+        <li>the username you pick, which is shown publicly on the leaderboard;</li>
+        <li>
+          your email address, either the one you type or the one your Google account provides, kept private
+          and never shown on the leaderboard;
+        </li>
+        <li>if you use Google sign-in, your Google account's ID, so we can recognize you next time;</li>
+        <li>your game results: scores, number of links or tries, and dates.</li>
+      </ul>
+      <p>
+        We don't receive or store passwords. Google sign-in only shares your basic profile (name, email and
+        account ID) with us. A sign-in token kept in your browser keeps you signed in on that device until you
+        sign out.
+      </p>
+
+      <h2>Where it's kept</h2>
+      <p>
+        Suggestions and leaderboard data are stored with Cloudflare, which hosts our small server. The game
+        itself is hosted on GitHub Pages.
+      </p>
+
+      <h2>Removing your data</h2>
+      <p>
+        To have your account and scores deleted, or for any question about this page, contact the site owner
+        through <a href="https://github.com/ndelregno">github.com/ndelregno</a>.
+      </p>
+
+      <h2>Word list credits</h2>
+      <p>
+        Many of the game's word pairs come from
+        <a href="https://en.wiktionary.org/">Wiktionary</a>, via the
+        <a href="https://kaikki.org/dictionary/English/">kaikki.org</a> extract, and are used under the
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike
+        license</a>. The game's word list, as derived from Wiktionary, is shared under the same license.
+        More pairs come from <a href="https://en-word.net/">Open English WordNet</a>
+        (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>) and were found and checked with
+        <a href="https://books.google.com/ngrams">Google Books Ngram</a> counts
+        (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>), and from the
+        <a href="https://github.com/Crossword-Nexus/collaborative-word-list">Crossword Nexus Collaborative Word List</a>
+        (MIT license, © 2021 Crossword-Nexus), and from the multiword expression norms of Muraki, Abdalla,
+        Brysbaert and Pexman (2022, <a href="https://osf.io/ksypa/">osf.io/ksypa</a>,
+        <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>). How common spoken phrases are was
+        judged with counts from the <a href="https://opus.nlpl.eu/OpenSubtitles/corpus/version/OpenSubtitles">OpenSubtitles
+        2018</a> collection (P. Lison and J. Tiedemann, 2016; only counts are used, never subtitle text).
+        Word rarity is estimated from Wikipedia word frequencies compiled by
+        <a href="https://github.com/IlyaSemenov/wikipedia-word-frequency">Ilya Semenov</a> (MIT license) and from
+        <a href="https://github.com/rspeer/wordfreq">wordfreq</a> by Robyn Speer
+        (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>).
+      </p>
+
+      <p><a href="./">Back to the game</a></p>
+    </main>
+  </body>
+</html>
